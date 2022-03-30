@@ -16,6 +16,8 @@ import {
   PaletteComponent,
   GuideComponentComponent,
   AnimationComponent,
+  InteractionComponent,
+  ActionComponent,
 } from './component';
 
 export type G2ViewTree = {
@@ -34,10 +36,12 @@ export type G2Library = Record<
   G2BaseComponent
 >;
 
+export type G2Store = Map<string, Record<string, any>>;
+
 export type G2Context = {
   library?: G2Library;
   canvas?: Canvas;
-  viewTree?: any;
+  store?: G2Store;
 };
 
 export type G2Area = {
@@ -52,6 +56,7 @@ export type G2Area = {
   theme?: G2ThemeOptions;
   coordinate?: G2CoordinateOptions[];
   component?: G2GuideComponentOptions[];
+  interaction?: G2InteractionOptions[];
   marks?: G2Mark[];
 };
 
@@ -112,7 +117,9 @@ export type G2ComponentOptions =
   | G2ShapeOptions
   | G2PaletteOptions
   | G2GuideComponentOptions
-  | G2AnimationOptions;
+  | G2AnimationOptions
+  | G2InteractionOptions
+  | G2ActionOptions;
 
 export type G2TransformOptions = G2BaseComponentOptions<TransformComponent>;
 export type G2StatisticOptions = G2BaseComponentOptions<StatisticComponent>;
@@ -147,3 +154,5 @@ export type G2GuideComponentOptions = G2BaseComponentOptions<
   }
 >;
 export type G2AnimationOptions = G2BaseComponentOptions<AnimationComponent>;
+export type G2InteractionOptions = G2BaseComponentOptions<InteractionComponent>;
+export type G2ActionOptions = G2BaseComponentOptions<ActionComponent>;

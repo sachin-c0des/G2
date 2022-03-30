@@ -7,3 +7,5 @@ export {
   MaybeSplitPosition,
   MaybeSplitPositionOptions,
 } from './maybeSplitPosition';
+export { MaybeKey, MaybeKeyOptions } from './maybeKey';
+export { MaybeTooltip, MaybeTooltipOptions } from './maybeTooltip';

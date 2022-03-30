@@ -22,12 +22,7 @@ export function inferComponent(
     GuideComponent
   >('component', library);
 
-  const displayedScales = scales
-    .filter(({ guide }) => guide !== null)
-    .map(({ guide, ...rest }) => ({
-      ...rest,
-      guide: guide || {},
-    }));
+  const displayedScales = scales.filter(({ guide }) => guide !== null);
   const componentScale = new Map<G2GuideComponentOptions, G2ScaleOptions>();
   const components = [...partialComponents];
 

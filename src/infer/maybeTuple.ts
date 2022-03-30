@@ -13,6 +13,7 @@ function inferEncode({ x, y, ...rest }: InferredEncode) {
 /**
  * Wrap flat x and y channel into nested array.
  * @example {x: [1, 2, 3]} -> {x: [[1], [2], [3]]}
+ * @example {x: 1} -> {x: [[1]]}
  */
 export const MaybeTuple: IC<MaybeTupleOptions> = () => {
   return ({ encode, transform }) => ({

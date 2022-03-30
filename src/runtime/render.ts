@@ -17,11 +17,11 @@ export function render<T extends G2ViewTree = G2ViewTree>(
       container: document.createElement('div'),
     }),
     library = createLibrary(),
-    viewTree = {},
+    store = new Map<string, Record<string, any>>(),
   } = context;
   context.canvas = canvas;
   context.library = library;
-  context.viewTree = viewTree;
+  context.store = store;
 
   // Plot the chart and mutate context.
   // Using requestAnimationFrame to make sure that plot chart after mounting container.

@@ -15,7 +15,7 @@ module.exports = {
       },
     },
   },
-  collectCoverage: true,
+  // collectCoverage: true,
   testRegex: '(/__tests__/.*\\.(test|spec))\\.ts$',
   collectCoverageFrom: ['src/**/*.ts'],
   // Transform esm to cjs.

@@ -56,12 +56,16 @@ Interval.props = {
     { name: 'enterDelay' },
     { name: 'enterDuration' },
     { name: 'enterEasing' },
+    { name: 'key', scale: 'identity' },
+    { name: 'tooltip', scale: 'identity' },
   ],
   infer: [
     { type: 'maybeTuple' },
     { type: 'maybeZeroX1' },
     { type: 'maybeZeroY2' },
     { type: 'maybeStackY' },
+    { type: 'maybeKey' },
+    { type: 'maybeTooltip' },
   ],
   shapes: ['rect', 'hollowRect'],
 };

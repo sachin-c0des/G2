@@ -11,7 +11,9 @@ import {
   BBox,
   Vector2,
   GuideComponentPosition,
+  MaybeArray,
 } from './common';
+import { G2Store } from './options';
 
 export type G2ComponentNamespaces =
   | 'renderer'
@@ -27,7 +29,9 @@ export type G2ComponentNamespaces =
   | 'theme'
   | 'transform'
   | 'component'
-  | 'animation';
+  | 'animation'
+  | 'interaction'
+  | 'action';
 
 export type G2Component =
   | RendererComponent
@@ -41,7 +45,9 @@ export type G2Component =
   | ShapeComponent
   | ThemeComponent
   | GuideComponentComponent
-  | AnimationComponent;
+  | AnimationComponent
+  | InteractionComponent
+  | ActionComponent;
 
 export type G2ComponentValue =
   | Renderer
@@ -56,7 +62,9 @@ export type G2ComponentValue =
   | Shape
   | Theme
   | GuideComponent
-  | Animation;
+  | Animation
+  | Interaction
+  | Action;
 
 export type G2BaseComponent<
   R = any,
@@ -203,5 +211,33 @@ export type Animation = (
 ) => GAnimation;
 export type AnimationComponent<O = Record<string, unknown>> = G2BaseComponent<
   Animation,
+  O
+>;
+
+export type Step = {
+  trigger: string;
+  action: MaybeArray<string | { type: string; [key: string]: any }>;
+  throttle?: { wait?: number; leading?: boolean; trailing: boolean };
+};
+export type Interaction = { start?: Step[]; end?: Step[] };
+export type InteractionComponent<O = Record<string, unknown>> = G2BaseComponent<
+  Interaction,
+  O
+>;
+
+export type G2Event = Omit<Event, 'target'> & {
+  target: DisplayObject;
+  currentTarget: DisplayObject;
+};
+export type Action = (
+  event: G2Event,
+  context: {
+    store: G2Store;
+    scale: Map<{ type: string; [key: string]: any }, Scale>;
+  },
+  theme: G2Theme,
+) => void;
+export type ActionComponent<O = Record<string, unknown>> = G2BaseComponent<
+  Action,
   O
 >;

@@ -3,6 +3,7 @@ export type G2Theme = {
   defaultCategory10?: string;
   defaultCategory20?: string;
   defaultSize?: number;
+  elementActiveStroke?: string;
   enter?: {
     duration?: number;
     delay?: number;

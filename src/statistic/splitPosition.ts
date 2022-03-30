@@ -3,6 +3,11 @@ import { SplitPositionStatistic } from '../spec';
 
 export type SplitPositionOptions = Omit<SplitPositionStatistic, 'type'>;
 
+/**
+ * Split position channel to multiple position[index] channels.
+ * This is for parallel coordinate.
+ * @example { position: [...] } -> { position[0]: [...], position[1]: [...], ...}
+ */
 export const SplitPosition: SC<SplitPositionOptions> = () => {
   return ({ index, value }) => {
     const { position: P } = value;

@@ -10,6 +10,8 @@ import {
   MaybeSeries,
   MaybeStackY,
   MaybeSplitPosition,
+  MaybeKey,
+  MaybeTooltip,
 } from '../infer';
 import { Category10, Category20 } from '../palette';
 import { Linear, Ordinal, Band, Identity, Point, Time } from '../scale';
@@ -19,11 +21,13 @@ import {
   Line as LineShape,
   Smooth,
 } from '../shape';
-import { DodgeX, StackY, StackEnter, SplitPosition } from '../statistic';
+import { DodgeX, StackY, StackEnter, SplitPosition, Key } from '../statistic';
 import { Light } from '../theme';
-import { Fetch, FilterBy, SortBy, Pick } from '../transform';
+import { Fetch, FilterBy, SortBy, Pick, Rename, Subset } from '../transform';
 import { AxisX, AxisY, LegendCategory, LegendContinuous } from '../component';
 import { ScaleInY, FadeIn } from '../animation';
+import { ElementActive, Tooltip } from '../interaction';
+import { ElementHighlight, Tooltip as TooltipAction } from '../action';
 
 export function createLibrary(): G2Library {
   return {
@@ -43,6 +47,8 @@ export function createLibrary(): G2Library {
     'infer.maybeSeries': MaybeSeries,
     'infer.maybeStackY': MaybeStackY,
     'infer.maybeSplitPosition': MaybeSplitPosition,
+    'infer.maybeKey': MaybeKey,
+    'infer.maybeTooltip': MaybeTooltip,
     'palette.category10': Category10,
     'palette.category20': Category20,
     'scale.linear': Linear,
@@ -59,16 +65,23 @@ export function createLibrary(): G2Library {
     'statistic.dodgeX': DodgeX,
     'statistic.stackEnter': StackEnter,
     'statistic.splitPosition': SplitPosition,
+    'statistic.key': Key,
     'theme.light': Light,
     'transform.fetch': Fetch,
     'transform.sortBy': SortBy,
     'transform.filterBy': FilterBy,
     'transform.pick': Pick,
+    'transform.rename': Rename,
+    'transform.subset': Subset,
     'component.axisX': AxisX,
     'component.axisY': AxisY,
     'component.legendCategory': LegendCategory,
     'component.legendContinuous': LegendContinuous,
     'animation.scaleInY': ScaleInY,
     'animation.fadeIn': FadeIn,
+    'interaction.elementActive': ElementActive,
+    'interaction.tooltip': Tooltip,
+    'action.elementHighlight': ElementHighlight,
+    'action.tooltip': TooltipAction,
   };
 }
